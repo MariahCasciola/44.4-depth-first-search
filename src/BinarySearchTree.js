@@ -91,8 +91,18 @@ class BinarySearchTree {
     return values;
   }
 
+  // process the left node recursively, process the right node recursively, process the current node
   dfsPostOrder(values = []) {
-    // your solution here
+    // process the left node recursively
+    if (this.left) {
+      values = this.left.dfsPostOrder(values);
+    }
+    // process the right node recursively
+    if (this.right) {
+      values = this.right.dfsPostOrder(values);
+    }
+    // process the current node
+    values.push(this.value);
     return values;
   }
 
