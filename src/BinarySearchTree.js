@@ -61,8 +61,18 @@ class BinarySearchTree {
     }
   }
 
+  // in-order traversal, the left branch of the node is visited, then the current node is handled, and then the right branch is visited.
   dfsInOrder(values = []) {
-    // your solution here
+    // process the left node recursively
+    if (this.left) {
+      values = this.left.dfsInOrder(values);
+    }
+    // process the current node
+    values.push(this.value);
+    //process the right node recursively
+    if (this.right) {
+      values = this.right.dfsInOrder(values);
+    }
     return values;
   }
 
